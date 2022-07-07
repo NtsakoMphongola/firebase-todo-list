@@ -3,13 +3,14 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
 import { uid } from "uid";
-import { set, ref, onValue, remove, update} from "firebase/database";
+import { set, ref, onValue, remove, update,} from "firebase/database";
 import "./homepage.css";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import LogoutIcon from '@mui/icons-material/Logout';
 import CheckIcon from '@mui/icons-material/Check';
+// import CheckCircleIcon,{CheckCircle} from '@mui/icons-material/CheckCircle';
 
 export default function Homepage() {
   const [todo, setTodo] = useState("");
@@ -84,6 +85,11 @@ export default function Homepage() {
     remove(ref(db, `/${auth.currentUser.uid}/${uid}`));
   };
 
+  // Mark task done
+  // const handleCheck = (uid) => {
+  //   CheckCircle(ref(db, `/${auth.currentUser.uid}/${uid}`));
+  // };
+
   return (
     <div className="homepage">
       <input className="add-edit-input" type="text" placeholder="Add todo..." value={todo} onChange={(e) => setTodo(e.target.value)} />
@@ -91,6 +97,7 @@ export default function Homepage() {
       {todos.map((todo) => (
         <div className="todo">
           <h1>{todo.todo} <br></br>{todo.date}</h1>
+          {/* <CheckCircleIcon fontSize="large" onClick={() => handleCheck(todo)} className="done-button" /> */}
           <EditIcon fontSize="large" onClick={() => handleUpdate(todo)} className="edit-button"/>
           <DeleteIcon fontSize="large" onClick={() => handleDelete(todo.uidd)} className="delete-button" />
         </div>
