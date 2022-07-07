@@ -1,7 +1,7 @@
 .homepage {
     height: 100vh;
     weight: 100vw;
-    background: linear-gradient(45.19deg, #20afda 25.89%, #2a00d5 250.56%);
+    background: burlywood;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,14 +16,14 @@
     border: none;
     height: 30px;
     font-size: 25px;
-    padding: 5px 20px;
+    padding: 7px 20px;
   }
   
   .add-confirm-icon {
     position: absolute;
     transform: scale(2);
-    top: 27px;
-    right: 750px;
+    top: 30px;
+    right: 745px;
     cursor: pointer;
   }
   
@@ -32,17 +32,16 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
   }
   
   .todo > h1 {
-    width: 500px;
-    background-color: rgb(211, 211, 211);
+    width: 600px;
+    background-color: rgb(176, 228, 35);
     padding: 5px 10px;
   }
   
-  .edit-button,
-  .delete-button {
+  .edit-button, .delete-button {
     cursor: pointer;
     margin-left: 10px;
   }
@@ -53,6 +52,6 @@
     top: 10px;
     right: 10px;
     padding: 20px;
-    background: gray;
+    background: rgb(36, 85, 245);
     color: white;
   }

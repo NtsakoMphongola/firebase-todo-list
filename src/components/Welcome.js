@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  createUserWithEmailAndPassword
-} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
-import './welcome.css'
-import TodoSVG from '../assets/todo-svg.svg'
+import './welcome.css';
+import TodoSVG from '../assets/todo-svg.svg';
 
 export default function Welcome() {
   const [email, setEmail] = useState("");
@@ -72,46 +68,31 @@ export default function Welcome() {
     <img src={TodoSVG} className="todo-svg" />
       <h1>Todo-List</h1>
       <div className="login-register-container">
+        <h3>Enter your user details</h3>
         {isRegistering ? (
           <>
-            <input
-              type="email"
-              placeholder="Email"
-              value={registerInformation.email}
-              onChange={(e) =>
+            <input type="email" placeholder="Email" value={registerInformation.email} onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
                   email: e.target.value
                 })
               }
             />
-            <input
-              type="email"
-              placeholder="Confirm Email"
-              value={registerInformation.confirmEmail}
-              onChange={(e) =>
+            <input type="email" placeholder="Confirm Email"value={registerInformation.confirmEmail} onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
                   confirmEmail: e.target.value
                 })
               }
             />
-            <input
-              type="password"
-              placeholder="Password"
-              value={registerInformation.password}
-              onChange={(e) =>
+            <input type="password" placeholder="Password" value={registerInformation.password} onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
                   password: e.target.value
                 })
               }
             />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              value={registerInformation.confirmPassword}
-              onChange={(e) =>
+            <input type="password" placeholder="Confirm Password"value={registerInformation.confirmPassword} onChange={(e) =>
                 setRegisterInformation({
                   ...registerInformation,
                   confirmPassword: e.target.value
@@ -124,21 +105,9 @@ export default function Welcome() {
         ) : (
           <>
             <input type="email" placeholder="Email" onChange={handleEmailChange} value={email} />
-            <input
-              type="password"
-              onChange={handlePasswordChange}
-              value={password}
-              placeholder="Password"
-            />
-            <button className="sign-in-register-button" onClick={handleSignIn}>
-              Sign In
-            </button>
-            <button
-              className="create-account-button"
-              onClick={() => setIsRegistering(true)}
-            >
-              Create an account
-            </button>
+            <input type="password"onChange={handlePasswordChange} value={password} placeholder="Password"/>
+            <button className="sign-in-register-button" onClick={handleSignIn}>Sign In </button>
+            <button className="create-account-button"onClick={() => setIsRegistering(true)}>Create an account</button>
           </>
         )}
       </div>
